@@ -9,6 +9,18 @@ const Headers = () => {
 
   const fetchDadJoke = async () => {
     console.log('fetch dad joke');
+    try {
+      const response= await axios.get(url,{
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+    if(response.status === 200){
+      setJoke(response.data.joke)
+    }
+    } catch (error) {
+      
+    }
   };
 
   return (
